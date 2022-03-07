@@ -5,9 +5,9 @@ import { IoIosArrowForward } from "react-icons/io";
 import { MdFaceRetouchingNatural } from "react-icons/md";
 
 const isNotActiveStyle =
-  "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
+  "flex items-center px-5 gap-3 text-sky-700 hover:text-sky-900 transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
-  "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black hover:text-black transition-all duration-200 ease-in-out capitalize";
+  "flex items-center px-5 gap-3 text-sky-900 font-extrabold border-r-2 border-sky-900 hover:text-sky-900 transition-all duration-200 ease-in-out capitalize";
 
 const categories = [
   { name: "Animals" },
