@@ -51,7 +51,7 @@ const Sidebar = ({ user, closeToggle }) => {
               <img
                 src={category.image}
                 alt="category"
-                className="group-hover:animate-bounce w-8 h-8 rounded-full shadow-sm"
+                className="group-hover:animate-bounce object-cover w-8 h-8 rounded-full shadow-sm"
               />
               {category.name}
             </NavLink>
