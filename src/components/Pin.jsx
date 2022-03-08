@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { MdDownloadForOffline } from "react-icons/md";
 import { AiTwotoneDelete } from "react-icons/ai";
@@ -121,17 +121,6 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
           </div>
         )}
       </div>
-      <Link
-        to={`user-profile/${postedBy?._id}`}
-        className="flex gap-2 mt-2 items-center"
-      >
-        <img
-          className="w-8 h-8 rounded-full object-cover"
-          src={postedBy?.image}
-          alt="userprof"
-        />
-        <p className="font-semibold capitalize">{postedBy?.username}</p>
-      </Link>
     </div>
   );
 };
