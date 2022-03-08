@@ -85,15 +85,15 @@ const CreatePin = ({ user }) => {
           Please fill in all the details
         </p>
       )}
-      <div className="flex lg:flex-row flex-col justify-center items-center bg-white lg:p-5 p-3 lg:w-4/5 w-full">
-        <div className="bg-sky-100 p-3 flex flex-0.7 w-full">
+      <div className="flex lg:flex-row flex-col justify-center items-center bg-white rounded-md lg:p-5 p-3 lg:w-4/5 w-full">
+        <div className="bg-sky-50 p-3 flex flex-0.7 w-full">
           <div className="flex justify-center items-center flex-col border-2 border-dotted border-sky-200 p-3 w-full h-420">
             {loading && <Spinner />}
             {wrongImageType && <p>Wrong Image Type!</p>}
             {!imageAsset ? (
               <label>
                 <div className="flex flex-col items-center justify-center h-full">
-                  <div className="flex flex-col justify-center items-center">
+                  <div className="flex flex-col cursor-pointer justify-center items-center">
                     <p className="font-bold text-sky-900 text-2xl">
                       <AiOutlineCloudUpload />
                     </p>

@@ -3,18 +3,12 @@ import { NavLink, Link } from "react-router-dom";
 import { RiHomeFill } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdFaceRetouchingNatural } from "react-icons/md";
+import { categories } from "../utils/data";
 
 const isNotActiveStyle =
-  "flex items-center px-5 gap-3 text-sky-700 hover:text-sky-900 transition-all duration-200 ease-in-out capitalize";
+  "group flex items-center px-5 gap-3 text-sky-700 hover:text-sky-900 transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
-  "flex items-center px-5 gap-3 text-sky-900 font-extrabold border-r-2 border-sky-900 hover:text-sky-900 transition-all duration-200 ease-in-out capitalize";
-
-const categories = [
-  { name: "Animals" },
-  { name: "Wallpaper" },
-  { name: "Photography" },
-  { name: "Gaming" },
-];
+  "group flex items-center px-5 gap-3 text-sky-900 font-extrabold border-r-2 border-sky-900 hover:text-sky-900 transition-all duration-200 ease-in-out capitalize";
 
 const Sidebar = ({ user, closeToggle }) => {
   const handleCloseSidebar = () => {
@@ -54,6 +48,11 @@ const Sidebar = ({ user, closeToggle }) => {
               onClick={handleCloseSidebar}
               key={category.name}
             >
+              <img
+                src={category.image}
+                alt="category"
+                className="group-hover:animate-bounce w-8 h-8 rounded-full shadow-sm"
+              />
               {category.name}
             </NavLink>
           ))}
@@ -62,12 +61,12 @@ const Sidebar = ({ user, closeToggle }) => {
       {user && (
         <Link
           to={`user-profile/${user._id}`}
-          className="flex my-5 mb-3 gap-2 p-2 items-center bg-sky-100 rounded-lg shadow-lg mx-3"
+          className="group flex my-5 mb-3 gap-2 p-2 items-center bg-sky-100 rounded-lg shadow-lg mx-3"
           onClick={handleCloseSidebar}
         >
           <img
             src={user.image}
-            className="w-10 h-10 rounded-full"
+            className="group-hover:animate-spin w-10 h-10 rounded-full"
             alt="user-profile"
           />
           <p>{user.username}</p>
