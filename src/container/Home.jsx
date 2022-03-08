@@ -25,7 +25,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex bg-sky-100 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
+    <div className="flex bg-sky-100 dark:bg-slate-900 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
       <div className="hidden md:flex h-screen flex-initial">
         <Sidebar user={user && user} />
       </div>
@@ -33,11 +33,11 @@ const Home = () => {
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
           <HiMenu
             fontSize={40}
-            className="cursor-pointer"
+            className="cursor-pointer dark:text-slate-400"
             onClick={() => setToggleSidebar(true)}
           />
           <Link to="/">
-            <p className="flex text-cyan-900 text-4xl font-bold">
+            <p className="flex text-cyan-900 dark:text-slate-400 text-4xl font-bold">
               <MdFaceRetouchingNatural />
               NOVA
             </p>
@@ -47,7 +47,7 @@ const Home = () => {
           </Link>
         </div>
         {toggleSidebar && (
-          <div className="fixed w-4/5 bg-sky-200 h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
+          <div className="fixed w-4/5 h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
             <div className="absolute w-full flex justify-end items-center p-2">
               <AiFillCloseCircle
                 fontSize={30}

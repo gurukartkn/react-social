@@ -1,16 +1,18 @@
-import React from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import Login from './components/Login'
-import Home from './container/Home'
-
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Home from "./container/Home";
+import { ThemeProvider } from "./components/themeContext";
 
 const App = () => {
   return (
-    <Routes>
-        <Route path='login' element={<Login/>}/>
-        <Route path='/*' element={<Home/>}/>
-    </Routes>
-    )
-}
+    <ThemeProvider>
+      <Routes>
+        <Route path="login" element={<Login />} />
+        <Route path="/*" element={<Home />} />
+      </Routes>
+    </ThemeProvider>
+  );
+};
 
-export default App
+export default App;
