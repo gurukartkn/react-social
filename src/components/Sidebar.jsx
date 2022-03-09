@@ -21,7 +21,7 @@ const Sidebar = ({ user, closeToggle }) => {
           className="flex px-5 gap-2 my-6 pt-1 w-190 items-center"
           onClick={handleCloseSidebar}
         >
-          <p className="flex text-sky-900 dark:text-slate-400 text-4xl font-bold">
+          <p className="flex text-sky-900 dark:text-slate-50 text-4xl font-bold">
             <MdFaceRetouchingNatural />
             NOVA
           </p>
