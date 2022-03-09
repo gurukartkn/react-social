@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./themeContext";
-import { BsFillCloudSunFill, BsCloudMoonFill } from "react-icons/bs";
+import { BsCloudSun, BsCloudMoonFill } from "react-icons/bs";
 
 export const Toggle = () => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -24,7 +24,7 @@ export const Toggle = () => {
       {theme === "dark" ? (
         <BsCloudMoonFill className="w-6 h-6 -translate-y-3.5 text-slate-100 shadow-lg" />
       ) : (
-        <BsFillCloudSunFill className="w-6 h-6 -translate-y-3.5 text-amber-400 shadow-lg" />
+        <BsCloudSun className="w-6 h-6 -translate-y-3.5 text-amber-400 shadow-lg" />
       )}
     </label>
   );
