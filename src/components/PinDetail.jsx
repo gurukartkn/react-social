@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MdDownloadForOffline } from "react-icons/md";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { client, urlFor } from "../client";
 import MasonryLayout from "./MasonryLayout";
@@ -14,6 +14,7 @@ const PinDetail = ({ user }) => {
   const [comment, setComment] = useState("");
   const [addingComment, setAddingComment] = useState(false);
   const { pinId } = useParams();
+  const navigate = useNavigate();
 
   const addComment = () => {
     if (comment) {
@@ -101,7 +102,7 @@ const PinDetail = ({ user }) => {
             </p>
           </div>
           <Link
-            to={`user-profile/${pinDetail.postedBy?._id}`}
+            to={`/user-profile/${pinDetail.postedBy?._id}`}
             className="flex gap-2 mt-2 items-center"
           >
             <img
@@ -140,7 +141,7 @@ const PinDetail = ({ user }) => {
             ))}
           </div>
           <div className="flex flex-wrap mt-6 gap-3">
-            <Link to={`user-profile/${pinDetail.postedBy?._id}`}>
+            <Link to={`/user-profile/${pinDetail.postedBy?._id}`}>
               <img
                 className="w-10 h-10 rounded-full object-cover cursor-pointer"
                 src={pinDetail.postedBy?.image}
