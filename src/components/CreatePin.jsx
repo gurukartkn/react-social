@@ -85,21 +85,23 @@ const CreatePin = ({ user }) => {
           Please fill in all the details
         </p>
       )}
-      <div className="flex lg:flex-row flex-col justify-center items-center bg-white rounded-md lg:p-5 p-3 lg:w-4/5 w-full">
-        <div className="bg-sky-50 p-3 flex flex-0.7 w-full">
-          <div className="flex justify-center items-center flex-col border-2 border-dotted border-sky-200 p-3 w-full h-420">
+      <div className="flex lg:flex-row flex-col justify-center items-center bg-white dark:bg-slate-800 rounded-md lg:p-5 p-3 lg:w-4/5 w-full">
+        <div className="bg-sky-50 dark:bg-slate-600 p-3 flex flex-0.7 w-full">
+          <div className="flex justify-center items-center flex-col border-2 border-dotted border-sky-200 dark:border-slate-400 p-3 w-full h-420">
             {loading && <Spinner />}
             {wrongImageType && <p>Wrong Image Type!</p>}
             {!imageAsset ? (
               <label>
                 <div className="flex flex-col items-center justify-center h-full">
                   <div className="flex flex-col cursor-pointer justify-center items-center">
-                    <p className="font-bold text-sky-900 text-2xl">
+                    <p className="font-bold text-sky-900 dark:text-slate-900 text-2xl">
                       <AiOutlineCloudUpload />
                     </p>
-                    <p className="text-lg text-sky-900">Click to upload</p>
+                    <p className="text-lg text-sky-900 dark:text-slate-900">
+                      Click to upload
+                    </p>
                   </div>
-                  <p className="mt-32 text-sky-400">
+                  <p className="mt-32 text-sky-400 dark:text-slate-800">
                     Recommendation: Use High-Quality JPG, SVG, PNG less than
                     20MB
                   </p>
@@ -120,7 +122,7 @@ const CreatePin = ({ user }) => {
                 />
                 <button
                   type="button"
-                  className="absolute bottom-3 right-3 p-3 rounded-full bg-sky-50 cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
+                  className="absolute bottom-3 right-3 p-3 rounded-full bg-sky-50 dark:bg-slate-400 cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
                   onClick={() => setImageAsset(null)}
                 >
                   <MdDelete />
@@ -135,16 +137,18 @@ const CreatePin = ({ user }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Add title"
-            className="outline-none text-2xl sm:text-3xl border-b-2 text-sky-900 border-sky-200 p-2"
+            className="outline-none text-2xl sm:text-3xl border-b-2 dark:bg-slate-800 text-sky-900 dark:text-slate-50 border-sky-200 dark:border-slate-500 p-2"
           />
           {user && (
-            <div className="flex gap-2 my-2 p-2 items-center bg-sky-50 rounded-lg">
+            <div className="flex gap-2 my-2 p-2 items-center bg-sky-50 dark:bg-slate-900 rounded-lg">
               <img
                 src={user.image}
                 alt="user-profile"
                 className="w-10 h-10 rounded-full"
               />
-              <p className="font-bold text-sky-900">{user.username}</p>
+              <p className="font-bold text-sky-900 dark:text-slate-50">
+                {user.username}
+              </p>
             </div>
           )}
           <input
@@ -152,31 +156,32 @@ const CreatePin = ({ user }) => {
             value={about}
             onChange={(e) => setAbout(e.target.value)}
             placeholder="What is your post about?"
-            className="outline-none text-base sm:text-lg text-sky-900 border-b-2 border-sky-200 p-2"
+            className="outline-none text-base sm:text-lg dark:bg-slate-800 dark:text-slate-50 dark:border-slate-500 text-sky-900 border-b-2 border-sky-200 p-2"
           />
           <input
             type="text"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Add a destination link"
-            className="outline-none text-base sm:text-lg text-sky-900 border-b-2 border-sky-200 p-2"
+            className="outline-none text-base sm:text-lg dark:bg-slate-800 dark:text-slate-50 dark:border-slate-500 text-sky-900 border-b-2 border-sky-200 p-2"
           />
           <div className="flex flex-col">
             <div>
-              <p className="mb-2 font-semibold text-sky-900 text-lg sm:text-xl">
+              <p className="mb-2 font-semibold text-sky-900 dark:text-slate-50 text-lg sm:text-xl">
                 Choose Post Category
               </p>
               <select
                 onChange={(e) => setCategory(e.target.value)}
-                className="outline-none w-4/5 text-base border-b-2 border-sky-200 p-2 rounded-md cursor-pointer"
+                className="outline-none w-4/5 text-base border-b-2 dark:bg-slate-400 border-sky-200 dark:border-slate-500 p-2 rounded-md cursor-pointer"
               >
-                <option value="other" className="bg-sky-50">
+                <option value="other" className="bg-sky-50 dark:bg-slate-400">
                   Select Category
                 </option>
-                {categories.map((category) => (
+                {categories.map((category, i) => (
                   <option
-                    className="text-base border-0 outline-none capitalize bg-sky-50 text-sky-900"
+                    className="text-base border-0 outline-none capitalize bg-sky-50 dark:bg-slate-400 dark:text-slate-700 text-sky-900"
                     value={category.name}
+                    key={i}
                   >
                     {category.name}
                   </option>
@@ -187,7 +192,7 @@ const CreatePin = ({ user }) => {
               <button
                 type="button"
                 onClick={savePin}
-                className="bg-sky-500 text-white font-bold p-2 rounded-full w-28 outline-none"
+                className="bg-sky-500 dark:bg-slate-600 dark:text-slate-50 text-white font-bold p-2 rounded-full w-28 outline-none"
               >
                 Save Post
               </button>

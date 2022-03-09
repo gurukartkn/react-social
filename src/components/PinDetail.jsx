@@ -63,7 +63,7 @@ const PinDetail = ({ user }) => {
 
   return (
     <>
-      <div className="flex xl:flex-row flex-col m-auto bg-sky-50 rounded-md">
+      <div className="flex xl:flex-row flex-col m-auto bg-sky-50 dark:bg-slate-800 rounded-md">
         <div className="flex justify-center items-center md:items-start flex-initial">
           <img
             src={pinDetail?.image && urlFor(pinDetail.image).url()}
@@ -78,7 +78,7 @@ const PinDetail = ({ user }) => {
                 href={`${pinDetail.image?.asset?.url}?dl=`}
                 download
                 onClick={(e) => e.stopPropagation()}
-                className="bg-sky-100 w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 shadow-md outline-none"
+                className="bg-sky-100 dark:bg-slate-400 w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 shadow-md outline-none"
               >
                 <MdDownloadForOffline />
               </a>
@@ -87,16 +87,18 @@ const PinDetail = ({ user }) => {
               href={pinDetail.destination}
               target="_blank"
               rel="noreferrer"
-              className="bg-sky-100 flex items-center fap-2 text-black font-bold p-2 rounded-full opacity-70 hover:opacity-100 shadow-md"
+              className="bg-sky-100 dark:bg-slate-400 flex items-center fap-2 text-black font-bold p-2 rounded-full opacity-70 hover:opacity-100 shadow-md"
             >
               <BsFillArrowUpRightCircleFill />
             </a>
           </div>
           <div>
-            <h1 className="text-4xl font-bold break-words mt-3 text-sky-900">
+            <h1 className="text-4xl font-bold break-words mt-3 text-sky-900 dark:text-slate-50">
               {pinDetail.title}
             </h1>
-            <p className="mt-3 text-sky-700">{pinDetail.about}</p>
+            <p className="mt-3 text-sky-700 dark:text-slate-300">
+              {pinDetail.about}
+            </p>
           </div>
           <Link
             to={`user-profile/${pinDetail.postedBy?._id}`}
@@ -108,15 +110,17 @@ const PinDetail = ({ user }) => {
               alt="userprof"
             />
 
-            <p className=" text-sky-900 font-semibold capitalize">
+            <p className=" text-sky-900 dark:text-slate-50 font-semibold capitalize">
               {pinDetail.postedBy?.username}
             </p>
           </Link>
-          <h2 className="mt-5 text-2xl text-sky-900">Comments</h2>
+          <h2 className="mt-5 text-2xl text-sky-900 dark:text-slate-50">
+            Comments
+          </h2>
           <div className="max-h-30 overflow-auto">
             {pinDetail?.comments?.map((comment, i) => (
               <div
-                className="flex gap-2 mt-5 items-center bg-sky-50 rounded-lg"
+                className="flex gap-2 mt-5 items-center bg-sky-50 dark:bg-slate-800 rounded-lg"
                 key={i}
               >
                 <img
@@ -125,10 +129,12 @@ const PinDetail = ({ user }) => {
                   className="w-10 h-10 rounded-full cursor-pointer"
                 />
                 <div className="flex flex-col">
-                  <p className="font-bold text-sky-900">
+                  <p className="font-bold text-sky-900 dark:text-slate-50">
                     {comment.postedBy.username}
                   </p>
-                  <p className="text-sky-700">{comment.comment}</p>
+                  <p className="text-sky-700 dark:text-slate-300">
+                    {comment.comment}
+                  </p>
                 </div>
               </div>
             ))}
@@ -143,14 +149,14 @@ const PinDetail = ({ user }) => {
             </Link>
             <input
               type="text"
-              className="flex-1 border-sky-100 outline-none border-2 p-2 rounded-2xl focus:border-sky-200"
+              className="flex-1 border-sky-100 dark:border-slate-300 dark:text-slate-900 dark:bg-slate-300 outline-none border-2 p-2 rounded-xl focus:border-sky-200 dark:focus:border-slate-200 shadow-lg"
               placeholder="Add a Comment"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
             />
             <button
               type="button"
-              className="bg-blue-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
+              className="bg-blue-500 dark:bg-slate-600 dark:text-slate-50 text-white rounded-full px-6 py-2 font-semibold text-base outline-none shadow-lg"
               onClick={addComment}
             >
               {addingComment ? "Posting the Comment.." : "Post"}
@@ -160,7 +166,7 @@ const PinDetail = ({ user }) => {
       </div>
       {pins?.length > 0 ? (
         <>
-          <h2 className="text-center font-bold text-2xl mt-8 mb-4">
+          <h2 className="text-center font-bold text-2xl mt-8 mb-4 dark:text-slate-50">
             More like this
           </h2>
           <MasonryLayout pins={pins} />

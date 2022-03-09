@@ -15,9 +15,9 @@ import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
 
 const activeBtnStyles =
-  "bg-sky-500 text-sky-50 font-bold p-2 rounded-full w-20 outline-none";
+  "bg-sky-500 dark:bg-slate-700 dark:text-slate-50 text-sky-50 font-bold p-2 rounded-full w-20 outline-none";
 const notActiveBtnStyles =
-  "bg-primary mr-4 text-sky-900 font-bold p-2 rounded-full w-20 outline-none";
+  "bg-primary mr-4 text-sky-900 dark:text-slate-50 font-bold p-2 rounded-full w-20 outline-none";
 
 const randomImage =
   "https://source.unsplash.com/1600x900/?nature,photography,technology";
@@ -74,7 +74,7 @@ const UserProfile = () => {
               src={user.image}
               alt="user-profile"
             />
-            <h1 className="font-bold text-sky-900 text-3xl text-center mt-3">
+            <h1 className="font-bold text-sky-900 dark:text-slate-50 text-3xl text-center mt-3">
               {user.username}
             </h1>
             <div className="absolute top-0 z-1 right-0 p-2">

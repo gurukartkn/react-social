@@ -3,7 +3,6 @@ import { NavLink, Link } from "react-router-dom";
 import { RiHomeFill } from "react-icons/ri";
 import { MdFaceRetouchingNatural } from "react-icons/md";
 import { categories } from "../utils/data";
-import { Toggle } from "./Toggle";
 
 const isNotActiveStyle =
   "group flex items-center px-5 gap-3 text-sky-700 dark:text-slate-400 hover:text-sky-900 dark:hover:text-slate-50 transition-all duration-200 ease-in-out capitalize";
@@ -60,23 +59,21 @@ const Sidebar = ({ user, closeToggle }) => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center">
-        <Toggle />
-        {user && (
-          <Link
-            to={`user-profile/${user._id}`}
-            className="group flex my-5 mb-3 gap-2 p-2 items-center bg-sky-100 dark:bg-slate-900 rounded-lg shadow-lg mx-3"
-            onClick={handleCloseSidebar}
-          >
-            <img
-              src={user.image}
-              className="group-hover:animate-spin w-10 h-10 rounded-full"
-              alt="user-profile"
-            />
-            <p className="dark:text-slate-200">{user.username}</p>
-          </Link>
-        )}
-      </div>
+
+      {user && (
+        <Link
+          to={`user-profile/${user._id}`}
+          className="group flex my-5 mb-3 gap-2 p-2 items-center bg-sky-100 dark:bg-slate-900 rounded-lg shadow-lg mx-3"
+          onClick={handleCloseSidebar}
+        >
+          <img
+            src={user.image}
+            className="group-hover:animate-spin w-10 h-10 rounded-full"
+            alt="user-profile"
+          />
+          <p className="dark:text-slate-200">{user.username}</p>
+        </Link>
+      )}
     </div>
   );
 };

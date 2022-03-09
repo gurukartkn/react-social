@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./themeContext";
+import { BsFillCloudSunFill } from "react-icons/bs";
 
 export const Toggle = () => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -19,7 +20,6 @@ export const Toggle = () => {
         checked={isDark()}
         onChange={(e) => toggleTheme(e)}
       />
-      Dark Mode
     </label>
   );
 };
